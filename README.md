@@ -1,4 +1,3 @@
-Repo for LCO2 coding files
+**LCO2 C# Coding Repo**
 
-Nothing else to see here...
-hello world
+Source code can be accessed here
