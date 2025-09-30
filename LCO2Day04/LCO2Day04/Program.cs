@@ -40,8 +40,7 @@ public class Program
                     Console.WriteLine("Invalid Selection");
                     break;
             }
-
-            //;
+            
             Console.Write("\nRun another program [y/n]? ");
             run = Console.ReadLine().ToLower() == "y";
         } while (run);
