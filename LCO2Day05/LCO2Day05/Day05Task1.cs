@@ -5,6 +5,7 @@ public class Day05Task1
 {
     public static void Run()
     {
+        // test commit 2
         List<int> list = [0, 1, -5, 10, 23, 30, -15, 8, 4];
         Console.WriteLine($"Sum of list is {SumList(list)}");
         Console.WriteLine($"Largest num in list is {FindMax(list)}");
@@ -12,6 +13,7 @@ public class Day05Task1
         string negatives = Day05Task2.ConvertToString(FindNegatives(list));
         Console.WriteLine($"Negatives in the list are {negatives}");
         // test commit 1
+        // test commit 2
     }
 
     private static int SumList(List<int> list)
