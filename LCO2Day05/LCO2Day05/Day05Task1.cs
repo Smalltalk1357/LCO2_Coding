@@ -11,6 +11,7 @@ public class Day05Task1
         Console.WriteLine($"Smallest num in list is {FindMin(list)}");
         string negatives = Day05Task2.ConvertToString(FindNegatives(list));
         Console.WriteLine($"Negatives in the list are {negatives}");
+        // test commit 1
     }
 
     private static int SumList(List<int> list)
