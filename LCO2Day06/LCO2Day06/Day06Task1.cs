@@ -1,4 +1,5 @@
 namespace LCO2Day06;
+
 // Mexican wave
 public class Day06Task1
 {
