@@ -1,5 +1,10 @@
 namespace LCO2Day06;
+
 // Mexican wave
+// The input string will always be lower case but may be empty.
+// If the character in the string is whitespace then pass over it as if it was an empty seat
+// E.g. Wave("hello") => [ "Hello", "hEllo", "heLlo", "helLo", "hellO"]
+
 public class Day06Task1
 {
     public static void Run()
