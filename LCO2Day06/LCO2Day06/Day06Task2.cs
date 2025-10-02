@@ -20,8 +20,11 @@ public class Day06Task2
         string helloEn = "Hello";
         string helloCn = "你好";
         
-        Console.WriteLine($"Character codes of {helloEn} are {String.Join(", ", ByteCodes())}.");
-        Console.WriteLine($"Character codes of {helloCn} are {String.Join(", ", ByteCodes(helloCn))}.");
+        Console.WriteLine($"Character codes of {helloEn} are {CharacterCodes(helloEn)}.");
+        Console.WriteLine($"Character codes of {helloCn} are {CharacterCodes(helloCn)}.");
+        
+        Console.WriteLine($"Byte codes of {helloEn} are {String.Join(", ", ByteCodes(helloEn))}.");
+        Console.WriteLine($"Byte codes of {helloCn} are {String.Join(", ", ByteCodes(helloCn))}.");
     }
 
     private static string CharacterCodes(string input = "hello")
