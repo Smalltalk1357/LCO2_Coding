@@ -32,6 +32,8 @@ public class Day06Task2
             result += (int)character; // returns the character code of the character
             result += " ";
         }
+        result = result.TrimEnd();
+        
         return result;
     }
 
