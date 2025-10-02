@@ -40,7 +40,7 @@ public class Day06Task2
     private static List<byte> ByteCodes(string input = "hello")
     {
         List<byte> result = [];
-        foreach (byte b in Encoding.UTF8.GetBytes(input))
+        foreach (byte b in Encoding.Default.GetBytes(input))
         {
             result.Add(b);
         }
