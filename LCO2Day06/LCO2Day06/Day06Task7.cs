@@ -14,22 +14,23 @@ public class Day06Task7
         switch (format)
         {
             case "camelCase": // capitalise the first letter of every word after the first, no spaces
-                string[] words = input.Split(' ');
-                
+                string LHS = input.Split(' ')[0];
+                string RHS = input.Substring(LHS.Length);
+                output += LHS.ToLower();
+                output += PascalCase(RHS);
                 break;
             
             case "PascalCase": // capitalise the first letter of every word, no spaces 
-                PascalCase(input);
+                output = PascalCase(input);
                 break;
             
             case "snake_case": // every word is separated by an underscore
-                string result = "";
                 foreach (string word in input.Split(' '))
                 {
-                    result += word.ToLower();
-                    result += "_";
+                    output += word.ToLower();
+                    output += "_";
                 }
-                output = result.TrimEnd('_');
+                output = output.TrimEnd('_');
                 break;
             
             default:
@@ -39,12 +40,13 @@ public class Day06Task7
         return output;
     }
 
-    private static void CapitaliseWords(ref string input)
+    private static string CapitaliseWords(string input)
     {
         string firstChar = input[0].ToString().ToUpper();
         // input = input.Remove(0, 1);
         
         input = firstChar + input.Substring(1).ToLower();
+        return input;
     }
     
     private static string PascalCase(string input)
@@ -53,9 +55,7 @@ public class Day06Task7
         
         foreach (string word in input.Split(' '))
         {
-            string temp = word;
-            CapitaliseWords(ref temp);
-            output += temp;
+            output += CapitaliseWords(word);
         }
         
         return output;
