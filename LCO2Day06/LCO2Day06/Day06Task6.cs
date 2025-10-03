@@ -8,7 +8,22 @@ public class Day06Task6
         
     }
 
-    public static bool IsAnagram(string word1, string word2)
+    private static int AnagramCount(string startWord, List<string> wordList)
+    {
+        int result = 0;
+        
+        foreach (string words in wordList)
+        {
+            if (IsAnagram(startWord, words))
+            {
+                result++;
+            }
+        }
+        
+        return result;
+    }
+
+    private static bool IsAnagram(string word1, string word2)
     {
         List<char> word1Chars = word1.ToCharArray().ToList();
         List<char> word2Chars = word2.ToCharArray().ToList();
