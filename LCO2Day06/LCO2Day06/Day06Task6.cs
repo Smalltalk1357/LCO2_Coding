@@ -5,7 +5,9 @@ public class Day06Task6
 {
     public static void Run()
     {
-        
+        string startWord = "star";
+        List<string> wordList = ["rats", "arts", "arc"];
+        Console.WriteLine($"Number of anagrams: {AnagramCount(startWord, wordList)}");
     }
 
     private static int AnagramCount(string startWord, List<string> wordList)
