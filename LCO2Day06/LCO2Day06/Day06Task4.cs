@@ -13,12 +13,17 @@ public class Day06Task4
     public static void Run()
     {
         List<int> characterCodes = [65, 66, 67, 68, 69, 70, 71, 72];
-        Console.WriteLine(StringFromBytes(characterCodes));
+        Console.WriteLine(StringFromInts(characterCodes));
     }
 
-    private static string StringFromBytes(List<int> bytes)
+    private static string StringFromInts(List<int> ints)
     {
-        string result = new string(bytes.Select(b => (char)b).ToArray());
-        return result;   
+        string result = new string(ints.Select(b => (char)b).ToArray());
+        return result;
+    }
+    
+    private static void StringFromBytes(List<byte> bytes)
+    {
+        
     }
 }
