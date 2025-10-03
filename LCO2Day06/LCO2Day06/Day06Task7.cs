@@ -5,7 +5,9 @@ public class Day06Task7
 {
     public static void Run()
     {
-        Console.WriteLine(VariableNameHelper("Hello World", "snake_case"));
+        Console.WriteLine(VariableNameHelper("Just a very long variable name", "camelCase"));
+        Console.WriteLine(VariableNameHelper("Just a very long variable name", "PascalCase"));
+        Console.WriteLine(VariableNameHelper("Just a very long variable name", "snake_case"));
     }
 
     private static string VariableNameHelper(string input, string format)
@@ -15,7 +17,7 @@ public class Day06Task7
         {
             case "camelCase": // capitalise the first letter of every word after the first, no spaces
                 string LHS = input.Split(' ')[0];
-                string RHS = input.Substring(LHS.Length);
+                string RHS = input.Substring(LHS.Length + 1);
                 output += LHS.ToLower();
                 output += PascalCase(RHS);
                 break;
