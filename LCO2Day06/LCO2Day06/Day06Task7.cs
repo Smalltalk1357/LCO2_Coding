@@ -17,7 +17,7 @@ public class Day06Task7
         {
             case "camelCase": // capitalise the first letter of every word after the first, no spaces
                 string LHS = input.Split(' ')[0];
-                string RHS = input.Substring(LHS.Length + 1);
+                string RHS = input.Substring(LHS.Length + 1); // needs to get rid of space
                 output += LHS.ToLower();
                 output += PascalCase(RHS);
                 break;
