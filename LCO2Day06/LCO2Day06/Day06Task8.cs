@@ -7,6 +7,18 @@ public class Day06Task8
     {
         
     }
+
+    public static string PigLatin(string input)
+    {
+        string[] words = input.Split(' ');
+        List<string> result = new List<string>();
+
+        foreach (string word in words)
+        {
+            
+        }
+        return "";
+    }
     
     
 }
