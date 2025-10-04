@@ -3,19 +3,19 @@ using System.Diagnostics;
 namespace LCO2Day06;
 
 // search screen looks like this:
-// a[01] b[02] c[03] d[04] e[05]
-// f[06] g[07] h[08] i[09] j[10]
-// k[11] l[12] m[13] n[14] o[15]
-// p[16] q[17] r[18] s[19] t[20]
-// u[21] v[22] w[23] x[24] y[25]
-// z[26] _[27] <[28]
-// find number of key presses to type in string
+// a[00] b[01] c[02] d[03] e[04]
+// f[05] g[06] h[07] i[08] j[09]
+// k[10] l[11] m[12] n[13] o[14]
+// p[15] q[16] r[17] s[18] t[19]
+// u[20] v[21] w[22] x[23] y[24]
+// z[25] _[26] <[27]
+// find number of key presses to type in string + spaces + select key
+
 public class Day06Task9Ext
 {
     public static void Run()
     {
-        Console.WriteLine(FindKeyPresses("az"));
-        
+        Console.WriteLine(FindKeyPresses("War and Peace"));
     }
 
     public static void TestFunction()
@@ -23,41 +23,44 @@ public class Day06Task9Ext
         Debug.Assert(FindDistance('a', 'e') == 4);
         Debug.Assert(FindDistance('e', 't') == 3);
         Debug.Assert(FindDistance('t', '<') == 4);
-        Debug.Assert(FindKeyPresses("et") == 11);
+        Debug.Assert(FindKeyPresses("et") == 14);
     }
 
     private static int FindKeyPresses(string sentence)
     {
+        // starts at a, so add a if first char is not a
         if (sentence[0] != 'a')
             sentence = 'a' + sentence;
-        sentence = sentence.ToLower() + '<'; // starts at a, ends at >
-        
+        // always ends on <, adds it to end of sentence
+        sentence = sentence.ToLower() + '<';
+
         char[] chars = sentence.ToCharArray();
         
         int result = 0;
         for (int i = 0; i < chars.Length - 1; i++)
         {
             result += FindDistance(chars[i], chars[i + 1]);
+            result ++; // add 1 for the select key
         }
         return result;
     }
 
     private static int FindDistance(char start, char end)
     {
-        // to find distance between two characters, get int value of start
-        // int value / 5, and % 5 gives the row and column,
-        // then it becomes a vector from the start to the end
-
+        // to find distance between two characters, get int value of start & end
+        // int division and modulo gives row and column of each
+        // then add the difference between the two together to get the distance
+        
         if (start == end)
         {
             return 0;
         }
         
-        int startValue = GetIntValue(start);
-        int endValue = GetIntValue(end);
+        int[] startCoords = GetRowCol(start);
+        int[] endCoords = GetRowCol(end);
         
-        int changeInX = Math.Abs((startValue % 5 + 1) - (endValue % 5 + 1));
-        int changeInY = Math.Abs((startValue / 5 + 1) - (endValue / 5 + 1));
+        int changeInX = Math.Abs(startCoords[0] - endCoords[0]);
+        int changeInY = Math.Abs(startCoords[1] - endCoords[1]);
         
         int result = changeInX + changeInY;
         
@@ -67,45 +70,43 @@ public class Day06Task9Ext
     private static int GetIntValue(char c)
     {
         // search screen looks like this:
-        // a[01] b[02] c[03] d[04] e[05]
-        // f[06] g[07] h[08] i[09] j[10]
-        // k[11] l[12] m[13] n[14] o[15]
-        // p[16] q[17] r[18] s[19] t[20]
-        // u[21] v[22] w[23] x[24] y[25]
-        // z[26] _[27] <[28]
+        // a[00] b[01] c[02] d[03] e[04]
+        // f[05] g[06] h[07] i[08] j[09]
+        // k[10] l[11] m[12] n[13] o[14]
+        // p[15] q[16] r[17] s[18] t[19]
+        // u[20] v[21] w[22] x[23] y[24]
+        // z[25] _[26] <[27]
         int charValue = 0;
         switch (c)
         {
             case ' ':
             case '_':
-                charValue = 27;
+                charValue = 26; // value assigned above
                 break;
             case '<':
-                charValue = 28;
+                charValue = 27;
                 break;
             default:
-                charValue = ((int)c - 96);
+                // a = 97 in ascii, so sets codepoints to start at 0
+                charValue = (int)c - 97;
                 break;
         }
         
-        if (charValue is >= 1 and <= 30)
-        {
-            return charValue;
-        }
-        return -1;
+        // if (charValue is >= 0 and <= 30)
+        // {
+        //     return charValue;
+        // }
+        // return -1;
+        
+        return charValue;
     }
 
-    private static int[] GetCoordinates(char c)
+    private static int[] GetRowCol(char c)
     {
         int charValue = GetIntValue(c);
 
-        int row = charValue / 6 + 1;
-        int col = charValue % 6;
+        int row = charValue / 5; // gets row using int division
+        int col = charValue % 5; // gets column using remainder
         return [row, col];
-    }
-
-    public static void TestFunctions2()
-    {
-        Console.WriteLine(String.Join(", ", GetCoordinates('a')));
     }
 }
