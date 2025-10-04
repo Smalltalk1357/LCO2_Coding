@@ -5,7 +5,7 @@ public class Day06Task8
 {
     public static void Run()
     {
-        string input = "The cat \"\"\" sat on the mat.";
+        string input = "The quick brown fox , jumps over the lazy dog";
         Console.WriteLine(PigLatin(input));
     }
 
@@ -35,7 +35,7 @@ public class Day06Task8
                 string tempWord = word.Substring(1);
 
                 output = tempWord + firstChar + "ay";
-                result += output + ' ';
+                result += output.ToLower() + ' ';
             }
             else
             {
