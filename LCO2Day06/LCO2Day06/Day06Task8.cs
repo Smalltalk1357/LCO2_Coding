@@ -5,20 +5,27 @@ public class Day06Task8
 {
     public static void Run()
     {
-        
+        string input = "The cat sat on the mat.";
+        Console.WriteLine(PigLatin(input));
     }
 
     public static string PigLatin(string input)
     {
         string[] words = input.Split(' ');
-        List<string> result = new List<string>();
-
+        string result = "";
+        
         foreach (string word in words)
         {
+            string output = "";
             
+            char firstChar = word[0];
+            string tempWord = word.Substring(1);
+            
+            output = tempWord + firstChar + "ay";
+            result += output + ' ';
         }
-        return "";
+        
+        result = result.TrimEnd(' ');
+        return result;
     }
-    
-    
 }
