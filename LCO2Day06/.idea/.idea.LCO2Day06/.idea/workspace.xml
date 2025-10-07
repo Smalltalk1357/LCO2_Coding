@@ -7,9 +7,7 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="f6e0830d-425a-4bc3-be01-6b9cd1aabff9" name="Changes" comment="">
-      <change beforePath="$PROJECT_DIR$/../Test/Untitled.rtf" beforeDir="false" />
-    </list>
+    <list default="true" id="f6e0830d-425a-4bc3-be01-6b9cd1aabff9" name="Changes" comment="" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -38,12 +36,7 @@
     <setting file="file://$PROJECT_DIR$/LCO2Day06/Day06Task4.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/LCO2Day06/Day06Task6.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/LCO2Day06/Day06Task7.cs" root0="FORCE_HIGHLIGHTING" />
-    <setting file="mock:///Users/alexwan/LCO2_Coding/LCO2Day06/LCO2Day06/Day06Task8.cs" root0="SKIP_HIGHLIGHTING" />
-    <setting file="mock:///Users/alexwan/LCO2_Coding/LCO2Day06/LCO2Day06/Day06Task8.cs" root0="SKIP_HIGHLIGHTING" />
-    <setting file="mock:///Users/alexwan/LCO2_Coding/LCO2Day06/LCO2Day06/Day06Task8.cs" root0="SKIP_HIGHLIGHTING" />
-    <setting file="mock:///Users/alexwan/LCO2_Coding/LCO2Day06/LCO2Day06/Day06Task8.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/LCO2Day06/Day06Task8.cs" root0="FORCE_HIGHLIGHTING" />
-    <setting file="mock:///Users/alexwan/LCO2_Coding/LCO2Day06/LCO2Day06/Day06Task9Ext.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/LCO2Day06/Day06Task9Ext.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/cdbc4322567d426cbed1d3dcb210024338fa8/53/a7be989a/Launcher.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/SourcesCache/2cc682d1fff1475ba3f5d9064efb6f1488e10f2e935ea7b0a27836fab6de3/Debug.cs" root0="FORCE_HIGHLIGHTING" />
@@ -244,6 +237,7 @@
       <workItem from="1759512130622" duration="10275000" />
       <workItem from="1759586807295" duration="11441000" />
       <workItem from="1759604255479" duration="1466000" />
+      <workItem from="1759833295052" duration="83000" />
     </task>
     <task id="LOCAL-00001" summary="LCO2Day06 Initial Commit">
       <option name="closed" value="true" />
@@ -477,7 +471,23 @@
       <option name="project" value="LOCAL" />
       <updated>1759598539886</updated>
     </task>
-    <option name="localTasksCounter" value="30" />
+    <task id="LOCAL-00030" summary="New commit">
+      <option name="closed" value="true" />
+      <created>1759833333607</created>
+      <option name="number" value="00030" />
+      <option name="presentableId" value="LOCAL-00030" />
+      <option name="project" value="LOCAL" />
+      <updated>1759833333607</updated>
+    </task>
+    <task id="LOCAL-00031" summary="New commit">
+      <option name="closed" value="true" />
+      <created>1759833369416</created>
+      <option name="number" value="00031" />
+      <option name="presentableId" value="LOCAL-00031" />
+      <option name="project" value="LOCAL" />
+      <updated>1759833369416</updated>
+    </task>
+    <option name="localTasksCounter" value="32" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -509,7 +519,6 @@
     <MESSAGE value="update Day06Task4.cs" />
     <MESSAGE value="Created Day06Task6.cs" />
     <MESSAGE value="AnagramCount method added" />
-    <MESSAGE value="New commit" />
     <MESSAGE value="Created Day06Task7.cs" />
     <MESSAGE value="Updated Day06Task7.cs" />
     <MESSAGE value="Fixed bug with camelCase index error" />
@@ -523,7 +532,8 @@
     <MESSAGE value="Created Day06Task9Ext.cs" />
     <MESSAGE value="Completed Day06Task9Ext.cs WITH BUGS" />
     <MESSAGE value="Fixed Day06Task9Ext.cs" />
-    <option name="LAST_COMMIT_MESSAGE" value="Fixed Day06Task9Ext.cs" />
+    <MESSAGE value="New commit" />
+    <option name="LAST_COMMIT_MESSAGE" value="New commit" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
