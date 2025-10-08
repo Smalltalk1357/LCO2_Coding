@@ -5,15 +5,25 @@ public class Day07Task1
     public static void Run()
     {
         Console.Clear();
-        Console.WriteLine("--- EDITING --- (return empty line to exit");
+        Console.WriteLine("--- EDITING --- (return empty line to exit)");
         List<string> writeToFile = ParseFile();
-        Console.WriteLine("--- END OF FILE ---");
+        Console.WriteLine("--- END OF EDITING ---\n");
+        
+        
         string outputPath = GetCurrentDirectory("sentences.txt");
-        WriteToFile(writeToFile, outputPath);
-        Console.WriteLine("--- FILE CREATED ---");
+        if (File.Exists(outputPath))
+        {
+            Console.WriteLine("--- APPENDING TO FILE ---");
+            File.AppendAllLines(outputPath, writeToFile);
+        }
+        else
+        {
+            Console.WriteLine("--- CREATING FILE ---");
+            File.WriteAllLines(outputPath, writeToFile);
+        }
     }
 
-    public static List<string> ParseFile()
+    private static List<string> ParseFile()
     {
         List<string> output = [];
         
@@ -35,10 +45,5 @@ public class Day07Task1
         string projectRoot = Path.GetFullPath(Path.Combine(currentDirectory, "../../../"));
         string outputPath = Path.Combine(projectRoot, filename);
         return outputPath;
-    }
-    
-    private static void WriteToFile(List<string> input, string filename)
-    {
-        File.WriteAllLines(filename, input);
     }
 }
