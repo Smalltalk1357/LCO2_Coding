@@ -38,7 +38,7 @@ public class Day07Task1
         }
     }
 
-    private static string GetCurrentDirectory(string filename = "") 
+    public static string GetCurrentDirectory(string filename = "") 
     {
         // I used some help to find the file path - suggested by AI
         string currentDirectory = Directory.GetCurrentDirectory();
