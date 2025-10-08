@@ -10,7 +10,7 @@ public class Day07Task1
         Console.WriteLine("--- END OF EDITING ---\n");
         
         
-        string outputPath = GetCurrentDirectory("sentences.txt");
+        string outputPath = Utils.GetCurrentDirectory("sentences.txt");
         if (File.Exists(outputPath))
         {
             Console.WriteLine("--- APPENDING TO FILE ---");
@@ -36,14 +36,5 @@ public class Day07Task1
             }
             output.Add(newLine);
         }
-    }
-
-    public static string GetCurrentDirectory(string filename = "") 
-    {
-        // I used some help to find the file path - suggested by AI
-        string currentDirectory = Directory.GetCurrentDirectory();
-        string projectRoot = Path.GetFullPath(Path.Combine(currentDirectory, "../../../"));
-        string outputPath = Path.Combine(projectRoot, filename);
-        return outputPath;
     }
 }
