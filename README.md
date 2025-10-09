@@ -1,6 +1,5 @@
 **LCO2 C# Coding Repo**
-\n
-/n
+
 Source code can be accessed here
 
 LCO2Day01 - Introductory Tasks
