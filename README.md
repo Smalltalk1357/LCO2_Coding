@@ -10,7 +10,7 @@ Source code can be accessed here
 <li>LCO2Day04 - Iteration</li>
 <li>LCO2Day05 - Lists and Arrays</li>
 <li>LCO2Day06 - Strings</li>
-<li>LCO2Day07 - Text Files (*In progress*)</li>
+<li>LCO2Day07 - Text Files *(In progress)* </li>
 </ul>
 
 More coming soon...
