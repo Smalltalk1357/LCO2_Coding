@@ -10,4 +10,15 @@ public class Utils
         string outputPath = Path.Combine(projectRoot, filename);
         return outputPath;
     }
+    
+    public static List<string> ParseFile(string filename)
+    {
+        List<string> output = [];
+        string[] lines = File.ReadAllLines(filename);
+        foreach (string line in lines)
+        {
+            output.Add(line);
+        }
+        return output;
+    }
 }

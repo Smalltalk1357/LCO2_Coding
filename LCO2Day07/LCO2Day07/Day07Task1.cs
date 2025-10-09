@@ -6,7 +6,7 @@ public class Day07Task1
     {
         Console.Clear();
         Console.WriteLine("--- EDITING --- (return empty line to exit)");
-        List<string> writeToFile = ParseFile();
+        List<string> writeToFile = ReadLines();
         Console.WriteLine("--- END OF EDITING ---\n");
         
         
@@ -23,7 +23,7 @@ public class Day07Task1
         }
     }
 
-    private static List<string> ParseFile()
+    private static List<string> ReadLines()
     {
         List<string> output = [];
         

@@ -1,5 +1,6 @@
 namespace LCO2Day07;
 
+// Questions for stations.txt
 public class Day07Task2
 {
     // For Q2, the station name is Battersea Power Station
@@ -7,21 +8,12 @@ public class Day07Task2
     public static void Run()
     {
         string filename = Utils.GetCurrentDirectory("stations.txt");
-        List<string> input = ParseFile(filename);
+        List<string> input = Utils.ParseFile(filename);
         List<string> output = SearchForTerm("Station", input);
         Console.WriteLine(output[0]);
     }
     
-    private static List<string> ParseFile(string filename)
-    {
-        List<string> output = [];
-        string[] lines = File.ReadAllLines(filename);
-        foreach (string line in lines)
-        {
-            output.Add(line);
-        }
-        return output;
-    }
+    
     private static string ParseTerm(string input, int index = 0)
     {
         string[] inputTerms = input.Split(",");
@@ -41,5 +33,16 @@ public class Day07Task2
             }
         }
         return output;
+    }
+
+    private static string CheckLetters(string input1, string input2)
+    {
+        char[] letters = input1.ToCharArray();
+        
+        foreach (char character in letters)
+        {
+            
+        }
+        return "";
     }
 }
