@@ -11,7 +11,7 @@ public class Utils
         return outputPath;
     }
     
-    public static List<string> ParseFile(string filename)
+    public static List<string> FileToList(string filename)
     {
         List<string> output = [];
         string[] lines = File.ReadAllLines(filename);
