@@ -11,11 +11,13 @@ public class Day07Task2
     // Q3c: Balham
     // Q3d: None
     // Q4:  5 stations: Charing Cross, Clapham Common, Golders Green, Seven Sisters, Sloane Square
+    // Q5:  District Line has the most, with 60 stations
     
     // Main Functions
     
     public static void Question2()
     {
+        // Which is the only station with the word "station" in its name?"
         List<string> stations = Utils.FileToList("stations.txt");
         List<string> output = SearchForTerm("Station", stations);
         Console.WriteLine(string.Join(", ", output));
@@ -23,9 +25,10 @@ public class Day07Task2
     
     public static void Question3()
     {
-        List<string> stations = Utils.FileToList("stations.txt");
-        
+        // Which tube stations share no letters with the following words:
         string[] checkNames = ["Mackerel", "Piranha", "Sturgeon", "Bacteria"];
+
+        List<string> stations = Utils.FileToList("stations.txt");
         foreach (string name in checkNames)
         {
             Console.WriteLine($"Checking for {name}");
@@ -43,6 +46,7 @@ public class Day07Task2
 
     public static void Question4()
     {
+        // Which tube stations are formed of two words, each beginning with the same letter?
         List<string> stations = Utils.FileToList("stations.txt");
 
         int total = 0;
@@ -61,22 +65,38 @@ public class Day07Task2
 
     public static void Question5()
     {
+        // What tube line has the most stations?
         List<string> stations = Utils.FileToList("stations.txt");
         
-        // list of all the tube lines
+        Dictionary<string, int> tubeLines = new Dictionary<string, int>();
+        
         foreach (string station in stations)
         {
-            string[] tubeLines = station.Split(" ");
-            for(int i = 1; i < tubeLines.Length; i++)
-            {
-                string line = tubeLines[i];
-                if (line.Contains("tube"))
+            List<string> lines = station.Split(", ").ToList();
+            lines.RemoveAt(0);
+            
+            foreach (string line in lines)
+                if (tubeLines.ContainsKey(line))
                 {
-                    Console.WriteLine(line);
+                    tubeLines[line]++;
                 }
+                else
+                {
+                    tubeLines.Add(line, 1);
+                }
+        }
+
+        int maxStations = 0;
+        string maxLine = "";
+        foreach (KeyValuePair<string, int> line in tubeLines)
+        {
+            if (line.Value > maxStations)
+            {
+                maxStations = line.Value;
+                maxLine = line.Key;
             }
         }
-        
+        Console.WriteLine($"Line with most stations: {maxLine}, with {maxStations} stations");
     }
     
     // Helper functions
