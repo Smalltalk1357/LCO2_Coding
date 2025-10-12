@@ -5,22 +5,58 @@ namespace LCO2Day07;
 // Questions for stations.txt
 public class Day07Task2
 {
-    // Q2: Battersea Power Station
-    // Q3a: 
+    // Q2:  Battersea Power Station
+    // Q3a: St. John's Wood
+    // Q3b: Stockwell
+    // Q3c: Balham
+    // Q3d: None
+    // Q4:  
     
-    public static void Run()
+    public static void Question2()
     {
-        string filename = Utils.GetCurrentDirectory("stations.txt");
-        List<string> input = Utils.FileToList(filename);
-        List<string> output = SearchForTerm("Station", input);
-        Console.WriteLine(output[0]);
+        List<string> stations = Utils.FileToList("stations.txt");
+        List<string> output = SearchForTerm("Station", stations);
+        Console.WriteLine(string.Join(", ", output));
     }
     
+    public static void Question3()
+    {
+        List<string> stations = Utils.FileToList("stations.txt");
+        
+        string[] checkNames = ["Mackerel", "Piranha", "Sturgeon", "Bacteria"];
+        foreach (string name in checkNames)
+        {
+            Console.WriteLine($"Checking for {name}");
+            foreach (string station in stations)
+            {
+                string stationName = ParseTerm(station);
+                List<char> temp = ShareLetters(stationName, name);
+                if (temp.Count == 0)
+                {
+                    Console.WriteLine($"-{stationName}");
+                }
+            }
+        }
+    }
+
+    public static void Question4()
+    {
+        List<string> stations = Utils.FileToList("stations.txt");
+        foreach (string station in stations)
+        {
+            string stationName = ParseTerm(station);
+            string[] temp = stationName.Split(" ");
+            if (temp.Length == 2)
+            {
+                Console.WriteLine(stationName);
+            }
+        }
+    }
     
     private static string ParseTerm(string input, int index = 0)
     {
-        string[] inputTerms = input.Split(",");
-        return inputTerms[index]; // In the case of stations.txt, the first term is the station name
+        string[] inputTerms = input.Split(", ");
+        return inputTerms[index]; // by default returns the first term, i.e. station name
     }
     
     private static List<string> SearchForTerm(string term, List<string> input)
@@ -40,30 +76,37 @@ public class Day07Task2
         return output;
     }
 
-    private static bool ShareLetters(string subString, string baseString)
+    // Looks to see if the substring shares letters with the reference string, returns the shared characters
+    private static List<char> ShareLetters(string subString, string refString)
     {
-        baseString = baseString.ToLower();
+        refString = refString.ToLower();
         subString = subString.ToLower();
         
         char[] letters = subString.ToCharArray();
+        List<char> shareLetters = [];
+        
         foreach (char character in letters)
         {
-            if (!baseString.Contains(character))
+            if (refString.Contains(character))
             {
-                return false;
+                shareLetters.Add(character);
             }
         }
         
-        return true;
+        return shareLetters;
     }
 
     public static void RunTest()
     {
         string testBaseString = "Mackerel";
-        Debug.Assert(ShareLetters("mackerel", testBaseString));
-        Debug.Assert(ShareLetters("mac", testBaseString));
-        Debug.Assert(ShareLetters("lack", testBaseString));
-        Debug.Assert(ShareLetters("real", testBaseString));
-        Debug.Assert(ShareLetters("kernel", testBaseString) == false);
+        Debug.Assert(ShareLetters(testBaseString, "Mackerel").Count == 8);
+        Debug.Assert(ShareLetters(testBaseString, "Kernel").Count == 5);
+        Debug.Assert(ShareLetters(testBaseString, "Real").Count == 4);
+    }
+
+    public static void RunTest2()
+    {
+        string testBaseString = "Abbey Road, Docklands Light Railway";
+        Console.WriteLine(ParseTerm(testBaseString));
     }
 }

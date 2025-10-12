@@ -1,6 +1,6 @@
 namespace LCO2Day07;
 
-public class Utils
+public static class Utils
 {
     public static string GetCurrentDirectory(string filename = "") 
     {
@@ -14,11 +14,8 @@ public class Utils
     public static List<string> FileToList(string filename)
     {
         List<string> output = [];
-        string[] lines = File.ReadAllLines(filename);
-        foreach (string line in lines)
-        {
-            output.Add(line);
-        }
+        string[] lines = File.ReadAllLines(GetCurrentDirectory(filename));
+        output.AddRange(lines);
         return output;
     }
 }
