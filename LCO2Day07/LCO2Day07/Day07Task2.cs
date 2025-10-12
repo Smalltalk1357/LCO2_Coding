@@ -12,6 +12,8 @@ public class Day07Task2
     // Q3d: None
     // Q4:  5 stations: Charing Cross, Clapham Common, Golders Green, Seven Sisters, Sloane Square
     
+    // Main Functions
+    
     public static void Question2()
     {
         List<string> stations = Utils.FileToList("stations.txt");
@@ -77,6 +79,8 @@ public class Day07Task2
         
     }
     
+    // Helper functions
+    
     private static string ParseTerm(string input, int index = 0)
     {
         string[] inputTerms = input.Split(", ");
@@ -100,9 +104,10 @@ public class Day07Task2
         return output;
     }
 
-    // Looks to see if the substring shares letters with the reference string, returns the shared characters
     private static List<char> ShareLetters(string subString, string refString)
     {
+        // Looks to see if the substring shares letters with the reference string, returns the shared characters
+
         refString = refString.ToLower();
         subString = subString.ToLower();
         
@@ -120,6 +125,8 @@ public class Day07Task2
         return shareLetters;
     }
 
+    // Test cases
+    
     public static void RunTest()
     {
         string testBaseString = "Mackerel";
