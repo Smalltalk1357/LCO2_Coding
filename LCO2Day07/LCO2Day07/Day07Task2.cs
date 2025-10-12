@@ -10,7 +10,7 @@ public class Day07Task2
     // Q3b: Stockwell
     // Q3c: Balham
     // Q3d: None
-    // Q4:  
+    // Q4:  5 stations: Charing Cross, Clapham Common, Golders Green, Seven Sisters, Sloane Square
     
     public static void Question2()
     {
@@ -42,15 +42,39 @@ public class Day07Task2
     public static void Question4()
     {
         List<string> stations = Utils.FileToList("stations.txt");
+
+        int total = 0;
         foreach (string station in stations)
         {
             string stationName = ParseTerm(station);
             string[] temp = stationName.Split(" ");
-            if (temp.Length == 2)
+            if (temp.Length != 2) continue;
+            if ((temp[0])[0] != (temp[1])[0]) continue;
+            Console.WriteLine(stationName);
+            total++;
+        }
+        
+        Console.WriteLine($"Number of stations that fit condition: {total}");
+    }
+
+    public static void Question5()
+    {
+        List<string> stations = Utils.FileToList("stations.txt");
+        
+        // list of all the tube lines
+        foreach (string station in stations)
+        {
+            string[] tubeLines = station.Split(" ");
+            for(int i = 1; i < tubeLines.Length; i++)
             {
-                Console.WriteLine(stationName);
+                string line = tubeLines[i];
+                if (line.Contains("tube"))
+                {
+                    Console.WriteLine(line);
+                }
             }
         }
+        
     }
     
     private static string ParseTerm(string input, int index = 0)
