@@ -1,19 +1,23 @@
 namespace LCO2Day07;
 
-// THIS IS BUGGY!!! WIP
-
 public class Day07Task6
 {
-    public static void Run()
+    public static void Question6A()
     {
         Dictionary<string, int> wordLists = ConvertToDictionary("stations.txt");
-        for (int i = 0; i < 4; i++)
+        for (int i = 0; i < 5; i++)
         {
             Console.WriteLine(wordLists.ElementAt(i).Key);
         }
     }
+
+    public static void Question6B()
+    {
+        Dictionary<string, int> wordLists = ConvertToDictionary("stations.txt", false);
+        Console.WriteLine(wordLists.ElementAt(0).Key);
+    }
     
-    public static Dictionary<string, int> ConvertToDictionary(string filename)
+    public static Dictionary<string, int> ConvertToDictionary(string filename, bool sortDescending = true)
     {
         // returns a sorted dictionary of words in the file and their frequency
         
@@ -22,19 +26,27 @@ public class Day07Task6
         
         foreach (string line in file)
         {
-            line.Remove(0, line.IndexOf(",") + 2);
             List<string> tempList = line.Split(" ").ToList();
 
             foreach (string word in tempList)
             {
-                if (!wordLists.TryAdd(word, 1))
+                word.TrimEnd(',');
+                if (wordLists.ContainsKey(word))
                 {
-                    wordLists[line]++;
+                    wordLists[word]++;
+                }
+                else
+                {
+                    wordLists.Add(word, 1);
                 }
             }
         }
+
+        // Sorts the dictionary (not my code)
+        var ordered = sortDescending
+            ? wordLists.OrderByDescending(x => x.Value).ThenBy(x => x.Key, StringComparer.Ordinal)
+            : wordLists.OrderBy(x => x.Value).ThenBy(x => x.Key, StringComparer.Ordinal);
         
-        Dictionary<string, int> sorted = wordLists.OrderByDescending(x => x.Value).ToDictionary(x => x.Key, x => x.Value);
-        return sorted;
+        return ordered.ToDictionary(x => x.Key, x => x.Value);
     }
 }
