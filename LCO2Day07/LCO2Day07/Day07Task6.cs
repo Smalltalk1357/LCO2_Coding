@@ -4,6 +4,7 @@ public class Day07Task6
 {
     public static void Question6A()
     {
+        // What are the top five words used in tube station names?
         Dictionary<string, int> wordLists = ConvertToDictionary("stations.txt");
         for (int i = 0; i < 5; i++)
         {
@@ -13,8 +14,18 @@ public class Day07Task6
 
     public static void Question6B()
     {
+        // What words appear only once?
         Dictionary<string, int> wordLists = ConvertToDictionary("stations.txt", false);
-        Console.WriteLine(wordLists.ElementAt(0).Key);
+        int count = 0;
+        foreach (KeyValuePair<string, int> word in wordLists)
+        {
+            if (word.Value == 1)
+            {
+                Console.WriteLine(word.Key);
+                count++;
+            }
+        }
+        Console.WriteLine($"Number of words with only one occurrence: {count}");
     }
     
     public static Dictionary<string, int> ConvertToDictionary(string filename, bool sortDescending = true)
@@ -30,14 +41,21 @@ public class Day07Task6
 
             foreach (string word in tempList)
             {
-                word.TrimEnd(',');
-                if (wordLists.ContainsKey(word))
+                // formats string to avoid repeats (not my code)
+                string tempWord = new string(word.Where(ch => !char.IsPunctuation(ch) || ch == '\'').ToArray());
+                
+                // This kept on failing - I don't know why ¯\_(ツ)_/¯
+                // tempWord = tempWord.TrimStart('<');
+                // tempWord = tempWord.TrimEnd(',');
+                // tempWord = tempWord.TrimEnd(')');
+                
+                if (wordLists.ContainsKey(tempWord))
                 {
-                    wordLists[word]++;
+                    wordLists[tempWord]++;
                 }
                 else
                 {
-                    wordLists.Add(word, 1);
+                    wordLists.Add(tempWord, 1);
                 }
             }
         }
