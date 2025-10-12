@@ -5,13 +5,13 @@ namespace LCO2Day07;
 // Questions for stations.txt
 public class Day07Task2
 {
-    // Q2:  Battersea Power Station
+    // Q2: Battersea Power Station
     // Q3a: St. John's Wood
     // Q3b: Stockwell
     // Q3c: Balham
     // Q3d: None
-    // Q4:  5 stations: Charing Cross, Clapham Common, Golders Green, Seven Sisters, Sloane Square
-    // Q5:  District Line has the most, with 60 stations
+    // Q4: 5 stations: Charing Cross, Clapham Common, Golders Green, Seven Sisters, Sloane Square
+    // Q5: District Line has the most, with 60 stations
     
     // Main Functions
     
