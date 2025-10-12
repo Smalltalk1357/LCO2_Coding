@@ -74,8 +74,9 @@ public class Day07Task2
         {
             List<string> lines = station.Split(", ").ToList();
             lines.RemoveAt(0);
-            
+
             foreach (string line in lines)
+            {
                 if (tubeLines.ContainsKey(line))
                 {
                     tubeLines[line]++;
@@ -84,6 +85,7 @@ public class Day07Task2
                 {
                     tubeLines.Add(line, 1);
                 }
+            }
         }
 
         int maxStations = 0;

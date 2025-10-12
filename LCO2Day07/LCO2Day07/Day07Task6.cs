@@ -1,10 +1,16 @@
 namespace LCO2Day07;
 
+// THIS IS BUGGY!!! WIP
+
 public class Day07Task6
 {
     public static void Run()
     {
-        
+        Dictionary<string, int> wordLists = ConvertToDictionary("stations.txt");
+        for (int i = 0; i < 4; i++)
+        {
+            Console.WriteLine(wordLists.ElementAt(i).Key);
+        }
     }
     
     public static Dictionary<string, int> ConvertToDictionary(string filename)
@@ -16,7 +22,7 @@ public class Day07Task6
         
         foreach (string line in file)
         {
-            line.Remove(',');
+            line.Remove(0, line.IndexOf(",") + 2);
             List<string> tempList = line.Split(" ").ToList();
 
             foreach (string word in tempList)
