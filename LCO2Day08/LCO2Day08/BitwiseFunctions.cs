@@ -34,8 +34,30 @@ public class BitwiseFunctions
 
     private static void RemoveBit(string binaryNumber, int length, bool lsb = false)
     {
+        // If removing MSB:
+        // Remove most significant bit
+        // Pad left with 0 until length is reached
+        
+        // If removing LSB:
+        // Remove least significant bit
+        // Pad right with 0 until length is reached
+        
         int stringLength = binaryNumber.Length;
-        int index = lsb ? stringLength - length : length;
-        binaryNumber.Substring();
+        int startIndex = 0;
+        if (lsb)
+        {
+            startIndex = stringLength - length;
+        }
+        
+        string splitString = binaryNumber.Substring(startIndex, length);
+        
+        if (!lsb)
+        {
+            for (int i = 0; i < length; i++)
+            {
+                
+            }
+        }
+        
     }
 }
